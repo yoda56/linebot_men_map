@@ -57,10 +57,12 @@ foreach ($events as $event) {
  	$response = json_decode(json_encode($response),true);
 
  	if(array_key_exists('error', $response)){
- 		error_log("GNAVI API EXCEPTION status:".$response['error']['code']. " message:". $response['error']['message']);
- 		$bot->replyMessage($event->getReplyToken(),(new MultiMessageBuilder())
- 				->add(new TextMessageBuilder('グルナビAPIのエラーにより、お店が検索できませんでした')));
- 		continue;
+ 		if($response['error']['code'] != 600){ // 0件以外のエラー
+ 			error_log("GNAVI API EXCEPTION status:".$response['error']['code']. " message:". $response['error']['message']);
+ 			$bot->replyMessage($event->getReplyToken(),(new MultiMessageBuilder())
+ 					->add(new TextMessageBuilder('グルナビAPIのエラーにより、お店が検索できませんでした')));
+ 			continue;
+ 		}
  	}
 
  	// グルナビAPIのレスポンスからメッセージを作成
@@ -127,7 +129,8 @@ function makeRramenData($ramen)
 	$ret .= '■住所'  ."\n";
 	$ret .= (!empty($ramen['address']) ? replaceRamenData($ramen['address']) : '情報なし')."\n\n";
 	$ret .= '■定休日'."\n";
-	$ret .= (!empty($ramen['holiday']) ? replaceRamenData($ramen['holiday']) : '情報なし');
+	$ret .= (!empty($ramen['holiday']) ? replaceRamenData($ramen['holiday']) : '情報なし')."\n\n";
+	$ret .= ('Powered by ぐるなび');
 
 	return $ret;
 }
