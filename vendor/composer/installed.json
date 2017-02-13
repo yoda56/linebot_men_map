@@ -1,0 +1,56 @@
+[
+    {
+        "name": "linecorp/line-bot-sdk",
+        "version": "1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/line/line-bot-sdk-php.git",
+            "reference": "45e00a580524da0f614c91c5c61135d01bb338e1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/line/line-bot-sdk-php/zipball/45e00a580524da0f614c91c5c61135d01bb338e1",
+            "reference": "45e00a580524da0f614c91c5c61135d01bb338e1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6"
+        },
+        "require-dev": {
+            "apigen/apigen": "~4.1",
+            "phpmd/phpmd": "~2.4",
+            "phpunit/phpunit": "^4.8.24",
+            "squizlabs/php_codesniffer": "~2.6"
+        },
+        "time": "2017-01-20T14:05:54+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "LINE\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache License Version 2.0"
+        ],
+        "authors": [
+            {
+                "name": "moznion",
+                "email": "moznion@gmail.com"
+            },
+            {
+                "name": "Satoru Yoshihara",
+                "email": "vaduz0@gmail.com"
+            }
+        ],
+        "description": "SDK of the LINE BOT API for PHP",
+        "homepage": "https://github.com/line/line-bot-sdk-php",
+        "keywords": [
+            "bot",
+            "line",
+            "sdk"
+        ]
+    }
+]
